@@ -1,0 +1,36 @@
+<div class="title_name">
+  <h3>Products</h3>
+</div>
+
+<div *ngFor="let product of products">
+  <div class="items">
+    <h3>
+      <a
+        [title]="product.name + ' details'"
+        [routerLink]="['/products', product.id]">
+        {{ product.name }}
+      </a>
+    </h3>
+  </div>
+  <div class="title_name">
+    <img src="{{product.image}}" alt="Kaspi Product" width="200px" height="200">
+  </div>
+
+  <p *ngIf="product.description">
+    Description: {{product.description}}
+  </p>
+  <p *ngIf="product.rating">
+    {{product.rating}} <img src="http://cdn.onlinewebfonts.com/svg/img_397133.png" height="15">
+  </p>
+  <div class="btm">
+    <a href="{{product.link}}" target='_blank'>
+      <img src="https://avellum.com/Content/Entities/Deal/561/ru/cover.jpg" alt="Kaspi" height="40">
+    </a>
+
+    <a [routerLink]="['/products', product.id]">
+      <button type="button" style="position:relative; top:-19px; margin-left: 25px">
+        Share
+      </button>
+    </a>
+  </div>
+</div>
